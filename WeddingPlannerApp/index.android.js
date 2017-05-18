@@ -10,10 +10,15 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  Button,
 } from 'react-native';
+import { StackNavigator, } from 'react-navigation';
 
-export default class WeddingPlannerApp extends Component {
+export default class Hello extends Component {
+  static navigationOptions = {
+    title: 'Hello moto',
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -33,12 +38,17 @@ export default class WeddingPlannerApp extends Component {
 }
 
 class Layout extends Component {
+  static navigationOptions = {
+    title: 'Wedding App',
+  };
   render() {
+    const { navigate } = this.props.navigation;
     return <Image style={styles.wallpaper} source={require('./img/wallpaper.jpg')}>
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Welcome to Wedding Planner App!
         </Text>
+        <Button title="Begin" onPress={_ => navigate('Test')} />
       </View>
     </Image>;
   }
@@ -68,4 +78,9 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('WeddingPlannerApp', () => Layout);
+const WeddingPlannerApp = StackNavigator({
+  Main: { screen: Layout },
+  Test: { screen: Hello },
+});
+
+AppRegistry.registerComponent('WeddingPlannerApp', () => WeddingPlannerApp);
