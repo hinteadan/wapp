@@ -9,7 +9,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Image
 } from 'react-native';
 
 export default class WeddingPlannerApp extends Component {
@@ -31,12 +32,24 @@ export default class WeddingPlannerApp extends Component {
   }
 }
 
+class Layout extends Component {
+  render() {
+    return <Image style={styles.wallpaper} source={require('./img/wallpaper.jpg')}>
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to Wedding Planner App!
+        </Text>
+      </View>
+    </Image>;
+  }
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'rgba(255, 255, 255, 0.85)',
   },
   welcome: {
     fontSize: 20,
@@ -48,6 +61,11 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  wallpaper: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: null,
+  },
 });
 
-AppRegistry.registerComponent('WeddingPlannerApp', () => WeddingPlannerApp);
+AppRegistry.registerComponent('WeddingPlannerApp', () => Layout);
