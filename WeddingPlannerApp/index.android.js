@@ -14,6 +14,7 @@ import {
   Button,
 } from 'react-native';
 import { StackNavigator, } from 'react-navigation';
+import LoginScreen from './login';
 
 export default class Hello extends Component {
   static navigationOptions = {
@@ -40,6 +41,7 @@ export default class Hello extends Component {
 class Layout extends Component {
   static navigationOptions = {
     title: 'Wedding App',
+    headerRight: <Text>HR</Text>,
   };
   render() {
     const { navigate } = this.props.navigation;
@@ -48,6 +50,7 @@ class Layout extends Component {
         <Text style={styles.welcome}>
           Welcome to Wedding Planner App!
         </Text>
+        <LoginScreen />
         <Button title="Begin" onPress={_ => navigate('Test')} />
       </View>
     </Image>;
@@ -76,6 +79,9 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     width: null,
   },
+  fillWidth:{
+    flex: 1
+  }
 });
 
 const WeddingPlannerApp = StackNavigator({
