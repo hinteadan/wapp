@@ -33,7 +33,7 @@ class LoginService {
         return new Promise((yey, ney) => {
             debugger;
             axios
-                .get('http://www.google.com/', { user: username, pass: password })
+                .post('http://hintea-pc.thor.recognos.ro:9969/auth', { user: username, pass: password })
                 .then(x => {
                     yey(`${username} successfully authenticated!`);
                 }, x = {})
@@ -66,7 +66,7 @@ export default class Login extends Component {
         this.setState({ isAuthing: true, loginLabel: 'Authing...' });
         LoginService
             .authenticate(this.state.username, this.state.password)
-            .then(res => Alert.alert('Login', res))
+            .then(res => Alert.alert('Login', res), _ => Alert.alert('Invalid Login', 'Wrong user/pass'))
             .finally(_ => { this.setState({ isAuthing: false, loginLabel: 'Login' }); });
         ;
     }

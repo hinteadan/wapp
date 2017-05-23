@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthModule.cs" />
     <Compile Include="PingModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
