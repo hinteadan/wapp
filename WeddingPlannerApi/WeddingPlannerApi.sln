@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeddingPlannerApi", "WeddingPlannerApi\WeddingPlannerApi.csproj", "{455497FD-9CD8-49C5-853E-F8633C34198B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{518A5E07-FE7B-411D-A01D-720DF1D354AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeddingPlanner.Host.Console", "WeddingPlanner.Host.Console\WeddingPlanner.Host.Console.csproj", "{049B0F84-39AF-4026-89C9-368A66E7F94A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{455497FD-9CD8-49C5-853E-F8633C34198B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{455497FD-9CD8-49C5-853E-F8633C34198B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{455497FD-9CD8-49C5-853E-F8633C34198B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{455497FD-9CD8-49C5-853E-F8633C34198B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{049B0F84-39AF-4026-89C9-368A66E7F94A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{049B0F84-39AF-4026-89C9-368A66E7F94A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{049B0F84-39AF-4026-89C9-368A66E7F94A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{049B0F84-39AF-4026-89C9-368A66E7F94A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{049B0F84-39AF-4026-89C9-368A66E7F94A} = {518A5E07-FE7B-411D-A01D-720DF1D354AE}
+	EndGlobalSection
+EndGlobal
