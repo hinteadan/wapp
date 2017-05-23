@@ -24,7 +24,7 @@ namespace WeddingPlannerApi
 
         private dynamic Authenticate(AuthDto authDto)
         {
-            if (authDto.User.Equals("hintee", StringComparison.InvariantCultureIgnoreCase))
+            if (Authentication.Components.Auth.Authenticate(authDto.User, authDto.Pass).IsValid())
             {
                 return HttpStatusCode.Accepted;
             }
