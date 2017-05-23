@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import {
     StyleSheet,
@@ -8,6 +9,7 @@ import {
     Image,
     Button,
     Dimensions,
+    Alert,
 } from 'react-native';
 
 let screen = {
@@ -17,7 +19,7 @@ let screen = {
 };
 
 const styles = StyleSheet.create({
-    fill:{
+    fill: {
         flex: 1,
         flexDirection: 'column'
     },
@@ -26,17 +28,46 @@ const styles = StyleSheet.create({
     }
 });
 
+class LoginService {
+    static authenticate(username, password) {
+        return new Promise((yey, ney) => {
+            debugger;
+            axios
+                .get('http://www.google.com/', { user: username, pass: password })
+                .then(x => {
+                    yey(`${username} successfully authenticated!`);
+                }, x = {})
+                .catch(x => {
+                    console.log(x);
+                    ney(x);
+                });
+        });
+    }
+}
+
 export default class Login extends Component {
     constructor() {
         super();
         this.state = {
-            
+            username: null,
+            password: null,
+            isAuthing: false,
+            loginLabel: 'Login'
         };
     }
     render() {
         return <View >
-            <TextInput style={[styles.input]} value={this.state.username} keyboardType="email-address" placeholder="Username" />
-            <TextInput style={[styles.input]} value={this.state.password} keyboardType="default" secureTextEntry={true} placeholder="Password" />
+            <TextInput style={[styles.input]} value={this.state.username} onChangeText={x => this.setState({ username: x })} keyboardType="email-address" placeholder="Username" />
+            <TextInput style={[styles.input]} value={this.state.password} onChangeText={x => this.setState({ password: x })} keyboardType="default" secureTextEntry={true} placeholder="Password" />
+            <Button onPress={() => this.login()} title={this.state.loginLabel} accessibilityLabel="Login using the provided username and password" disabled={this.state.isAuthing} />
         </View>;
+    }
+    login() {
+        this.setState({ isAuthing: true, loginLabel: 'Authing...' });
+        LoginService
+            .authenticate(this.state.username, this.state.password)
+            .then(res => Alert.alert('Login', res))
+            .finally(_ => { this.setState({ isAuthing: false, loginLabel: 'Login' }); });
+        ;
     }
 }

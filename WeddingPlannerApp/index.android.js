@@ -51,7 +51,6 @@ class Layout extends Component {
           Welcome to Wedding Planner App!
         </Text>
         <LoginScreen />
-        <Button title="Begin" onPress={_ => navigate('Test')} />
       </View>
     </Image>;
   }
