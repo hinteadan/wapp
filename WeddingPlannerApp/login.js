@@ -31,12 +31,17 @@ const styles = StyleSheet.create({
 class LoginService {
     static authenticate(username, password) {
         return new Promise((yey, ney) => {
-            debugger;
-            axios
-                .post('http://hintea-pc.thor.recognos.ro:9969/auth', { user: username, pass: password })
+            var xhr = axios.create({
+                baseURL: 'http://hintea-pc.thor.recognos.ro:9969',
+                timeout: 3000,
+            });
+            xhr
+                .post('/auth', { user: username, pass: password })
                 .then(x => {
                     yey(`${username} successfully authenticated!`);
-                }, x = {})
+                }, x => {
+                    ney(x);
+                })
                 .catch(x => {
                     console.log(x);
                     ney(x);
